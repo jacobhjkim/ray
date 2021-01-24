@@ -17,6 +17,14 @@ spec:
   # Specify the allowed pod types for this ray cluster and the resources they provide.
   podTypes:
   - name: head-node
+    # Minimum number of Ray workers of this Pod type.
+    minWorkers: 1
+    # Maximum number of Ray workers of this Pod type. Takes precedence over minWorkers.
+    maxWorkers: 1
+    # User-specified custom resources for use by Ray
+    rayResources: {}
+    # Optional commands to run before starting the Ray runtime.
+    setupCommands: []
     podConfig:
       apiVersion: v1
       kind: Pod
